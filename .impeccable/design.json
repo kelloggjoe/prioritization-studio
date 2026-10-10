@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-10T00:00:00Z",
+  "title": "Design System: Prioritization Studio",
+  "extensions": {
+    "colorMeta": {
+      "moss": {"role":"primary","displayName":"Moss Green","canonical":"#5d7052","tonalRamp":["#1d241a","#35402f","#5d7052","#81927a","#a8b4a3","#cbd2c7","#e7eae4","#f4f6f2"]},
+      "clay": {"role":"secondary","displayName":"Terracotta Clay","canonical":"#b9784e","tonalRamp":["#2c1c13","#5e3924","#8a5636","#b9784e","#cf9975","#e1bba3","#efdbcc","#faf1eb"]},
+      "paper": {"role":"neutral","displayName":"Rice Paper","canonical":"#fdfcf8","tonalRamp":["#24231f","#44423b","#69665e","#918d84","#b7b3aa","#d8d5ce","#eeeae4","#fdfcf8"]}
+    },
+    "typographyMeta": {
+      "display": {"displayName":"Crafted Display","purpose":"Hero propositions and section titles."},
+      "body": {"displayName":"Rounded Working Text","purpose":"Controls, explanations, and data."}
+    },
+    "shadows": [{"name":"ambient-panel","value":"0 18px 48px -28px rgba(93,112,82,.48)","purpose":"Quiet elevation for primary working surfaces."}],
+    "motion": [{"name":"tactile-lift","value":"220ms cubic-bezier(.16,1,.3,1)","purpose":"Buttons lift briefly without interrupting work."}],
+    "breakpoints": [{"name":"stack","value":"850px"},{"name":"cards","value":"600px"}]
+  },
+  "components": [
+    {"name":"Primary Button","kind":"button","refersTo":"button-primary","description":"Moss action control.","html":"<button class=\"ds-primary\">ADD INITIATIVE</button>","css":".ds-primary{min-height:46px;padding:11px 19px;border:0;border-radius:999px;background:#5d7052;color:#fff;font:800 15px Nunito,sans-serif;transition:.22s cubic-bezier(.16,1,.3,1)}.ds-primary:hover{transform:translateY(-2px);background:#41503a}.ds-primary:focus-visible{outline:3px solid #b9784e;outline-offset:4px}"},
+    {"name":"Decision Panel","kind":"card","refersTo":"panel","description":"Warm working surface with organic corners.","html":"<section class=\"ds-panel\"><strong>Initiatives</strong><p>4 initiatives · saved locally</p></section>","css":".ds-panel{padding:24px;border:1px solid #d7cfc4;border-radius:24px 44px 28px 38px;background:#fffefa;color:#2c2c24;box-shadow:0 18px 48px -28px rgba(93,112,82,.48);font:500 15px/1.6 Nunito,sans-serif}.ds-panel strong{font:700 28px Fraunces,serif}.ds-panel p{color:#68685e}"}
+  ],
+  "narrative": {
+    "northStar": "The Planning Table",
+    "overview": "A calm working session around a well-used planning table: tactile, grounded, and human without compromising operational clarity.",
+    "keyCharacteristics": ["Warm paper surfaces","Moss and clay accents","Asymmetric restrained forms","Clear numeric hierarchy"],
+    "rules": [{"name":"The Earthbound Signal Rule","body":"Saturated color is reserved for actions, weights, and decision signals.","section":"colors"}],
+    "dos": ["Do preserve a calm, tactile hierarchy around a dense decision task."],
+    "donts": ["Don't introduce violet, neon accents, or hard offset shadows.","Don't use decorative texture overlays."]
+  }
+}
