@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A transparent, adjustable product prioritization workspace.">
+  <title>Prioritization Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#workspace">Skip to workspace</a>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Prioritization Studio home"><span>PS</span> Prioritization Studio</a>
+    <div class="top-actions"><button class="button secondary" id="resetButton" type="button">Reset demo</button><button class="button primary" id="addButton" type="button">Add initiative</button></div>
+  </header>
+  <main id="workspace">
+    <section class="intro">
+      <div><p class="eyebrow">Decision workspace</p><h1>Make the tradeoffs visible.</h1><p>Score initiatives against shared criteria, tune the model, and give every roadmap conversation a transparent starting point.</p></div>
+      <div class="score-card"><span>Portfolio signal</span><strong id="portfolioScore">0</strong><small>average weighted score</small></div>
+    </section>
+
+    <section class="layout">
+      <aside class="weights panel" aria-labelledby="weightsTitle">
+        <div class="section-heading"><div><p class="eyebrow">Scoring model</p><h2 id="weightsTitle">Weights</h2></div><span class="shape dot" aria-hidden="true"></span></div>
+        <p class="helper">Move a slider to reflect what matters now. Weights do not need to total 100.</p>
+        <div id="weightControls"></div>
+        <div class="formula"><strong>Score</strong><span>(Reach × Impact × Confidence) ÷ Effort</span><small>Each factor is adjusted by its weight.</small></div>
+      </aside>
+
+      <section class="roadmap panel" aria-labelledby="roadmapTitle">
+        <div class="section-heading roadmap-heading"><div><p class="eyebrow">Ranked queue</p><h2 id="roadmapTitle">Initiatives</h2></div><p id="countLabel" aria-live="polite"></p></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">Rank & initiative</th><th scope="col">Reach</th><th scope="col">Impact</th><th scope="col">Confidence</th><th scope="col">Effort</th><th scope="col">Score</th><th scope="col"><span class="sr-only">Actions</span></th></tr></thead>
+            <tbody id="initiativeRows"></tbody>
+          </table>
+          <div class="empty" id="emptyState" hidden><span aria-hidden="true">◇</span><h3>No initiatives yet</h3><p>Add one to start shaping your roadmap.</p><button class="button primary" type="button" data-add>Add initiative</button></div>
+        </div>
+      </section>
+    </section>
+
+    <section class="legend" aria-label="Scoring guidance"><strong>A practical starting point</strong><span>Reach = people affected</span><span>Impact = outcome strength</span><span>Confidence = evidence quality</span><span>Effort = delivery cost</span></section>
+  </main>
+
+  <dialog id="initiativeDialog">
+    <form method="dialog" id="initiativeForm">
+      <div class="dialog-head"><div><p class="eyebrow">New initiative</p><h2>Add to the queue</h2></div><button class="icon-button" value="cancel" aria-label="Close dialog">×</button></div>
+      <label>Initiative name<input id="initiativeName" name="name" required maxlength="60" placeholder="Example: Improve activation flow"></label>
+      <div class="field-grid">
+        <label>Reach<input name="reach" type="number" min="1" max="10" value="6" required></label>
+        <label>Impact<input name="impact" type="number" min="1" max="10" value="7" required></label>
+        <label>Confidence<input name="confidence" type="number" min="1" max="10" value="7" required></label>
+        <label>Effort<input name="effort" type="number" min="1" max="10" value="5" required></label>
+      </div>
+      <div class="dialog-actions"><button class="button secondary" value="cancel">Cancel</button><button class="button primary" value="default" id="saveInitiative">Add initiative</button></div>
+    </form>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>
